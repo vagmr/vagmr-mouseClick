@@ -1,4 +1,4 @@
-﻿namespace MouseClickTool
+﻿namespace vMouseClickTool
 {
     partial class main
     {
@@ -67,7 +67,7 @@
             this.btnUrl.Name = "btnUrl";
             this.btnUrl.Size = new System.Drawing.Size(335, 15);
             this.btnUrl.TabIndex = 2;
-            this.btnUrl.Text = "https://github.com/lalakii/MouseClickTool";
+            this.btnUrl.Text = "https://github.com/vagmr/";
             // 
             // label2
             // 
@@ -182,7 +182,7 @@
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(207, 34);
             this.title.TabIndex = 4;
-            this.title.Text = "MouseClickTool";
+            this.title.Text = "vMouseClickTool";
             // 
             // btnMin
             // 

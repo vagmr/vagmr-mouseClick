@@ -4,12 +4,12 @@ using System.Reflection;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-[assembly: AssemblyTitle("MouseClickTool")]
-[assembly: AssemblyProduct("MouseClickTool")]
-[assembly: AssemblyCopyright("Copyright (C) 2024 lalaki.cn")]
-[assembly: AssemblyFileVersion("1.6.0.0")]
-[assembly: AssemblyVersion("1.6.0.0")]
-namespace MouseClickTool
+[assembly: AssemblyTitle("vMouseClickTool")]
+[assembly: AssemblyProduct("vMouseClickTool")]
+[assembly: AssemblyCopyright("Copyright (C) 2024 vagmr")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.0")]
+namespace vMouseClickTool
 {/// <summary>
  /// 怎么简单怎么来了
  /// </summary>
@@ -168,5 +168,7 @@ namespace MouseClickTool
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new main());
         }
+
+   
     }
 }
