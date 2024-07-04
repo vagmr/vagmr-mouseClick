@@ -16,4 +16,4 @@
 如何退出？如果鼠标点击频率过快无法停下来，请先让程序窗口到前台，然后按 ALT+F4 关闭程序。
 
 ## 界面预览
-<img src="https://github.com/vagmr/vagmr-mouseClick/demo.jpg" width="450"/>
+<img src="https://github.com/vagmr/vagmr-mouseClick/blob/main/demo.png" width="450"/>
