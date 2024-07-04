@@ -203,12 +203,32 @@ namespace vMouseClickTool
             this.btnMin.TabIndex = 5;
             this.btnMin.Text = "-";
             // 
+            // btnRecord
+            // 
+            this.btnRecord.Location = new System.Drawing.Point(20, 353);
+            this.btnRecord.Name = "btnRecord";
+            this.btnRecord.Size = new System.Drawing.Size(81, 33);
+            this.btnRecord.TabIndex = 6;
+            this.btnRecord.Text = "录制";
+            this.btnRecord.UseVisualStyleBackColor = true;
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.Location = new System.Drawing.Point(107, 353);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(81, 33);
+            this.btnPlay.TabIndex = 7;
+            this.btnPlay.Text = "播放";
+            this.btnPlay.UseVisualStyleBackColor = true;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(509, 359);
+            this.ClientSize = new System.Drawing.Size(509, 400);
+            this.Controls.Add(this.btnPlay);
+            this.Controls.Add(this.btnRecord);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.title);
             this.Controls.Add(this.btnClose);
@@ -247,9 +267,7 @@ namespace vMouseClickTool
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label btnMin;
-        private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Button btnRecord;
-
+        private System.Windows.Forms.Button btnPlay;
     }
 }
-

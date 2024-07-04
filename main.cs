@@ -4,37 +4,41 @@ using System.Reflection;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
+
 [assembly: AssemblyTitle("vMouseClickTool")]
 [assembly: AssemblyProduct("vMouseClickTool")]
 [assembly: AssemblyCopyright("Copyright (C) 2024 vagmr")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyVersion("1.0.0.0")]
+
 namespace vMouseClickTool
-{/// <summary>
- /// 怎么简单怎么来了
- /// </summary>
- /// 
-    partial class main : Form
+{
+    public partial class main : Form
     {
         [DllImport("user32.dll")]
         public static extern bool SetProcessDPIAware();
+
         [DllImport("shell32.dll")]
         static extern int ShellExecute(int hwnd, string lpOperation, string lpFile, string lpParameters, string lpDirectory, int nShowCmd);
-        //新方法：https://stackoverflow.com/questions/5094398/how-to-programmatically-mouse-move-click-right-click-and-keypress-etc-in-winfo
+
         [DllImport("user32.dll")]
         static extern uint SendInput(uint nInputs, ref INPUT pInputs, int cbSize);
+
         [StructLayout(LayoutKind.Sequential)]
         struct INPUT
         {
             public int type;
             public MouseKeybdhardwareInputUnion mkhi;
         }
+
         [StructLayout(LayoutKind.Explicit)]
         struct MouseKeybdhardwareInputUnion
         {
             [FieldOffset(0)]
             public MouseInputData mi;
         }
+
         [Flags]
         enum MouseEventFlags : uint
         {
@@ -43,6 +47,7 @@ namespace vMouseClickTool
             MOUSEEVENTF_RIGHTDOWN = 0x0008,
             MOUSEEVENTF_RIGHTUP = 0x0010,
         }
+
         [StructLayout(LayoutKind.Sequential)]
         struct MouseInputData
         {
@@ -53,6 +58,7 @@ namespace vMouseClickTool
             public uint time;
             public IntPtr dwExtraInfo;
         }
+
         INPUT input;
         void ClickMouseButton(MouseEventFlags downFlag, MouseEventFlags upFlag)
         {
@@ -62,9 +68,13 @@ namespace vMouseClickTool
             input.mkhi.mi.dwFlags = upFlag;
             SendInput(1, ref input, size);
         }
+
         const int waitSeconds = 4;
         bool isRunning = false;
-        main()
+        bool isRecording = false;
+        List<Action> recordedActions = new List<Action>();
+
+        public main()
         {
             InitializeComponent();
             Icon = SystemIcons.Application;
@@ -80,7 +90,6 @@ namespace vMouseClickTool
             btnClose.MouseHover += (__, _) => btnClose.ForeColor = Color.IndianRed;
             btnClose.MouseLeave += (__, _) => btnClose.ForeColor = Control.DefaultForeColor;
             btnMin.MouseHover += (__, _) => btnMin.ForeColor = Color.DodgerBlue;
-
             btnMin.MouseLeave += (__, _) => btnMin.ForeColor = Control.DefaultForeColor;
             Resize += (_, __) =>
             {
@@ -160,7 +169,50 @@ namespace vMouseClickTool
                 else
                     MessageBox.Show("鼠标点击间隔，必须是一个大于或等于0的数字", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
             };
+
+            btnRecord.Click += (__, _) =>
+            {
+                if (isRecording)
+                {
+                    isRecording = false;
+                    btnRecord.Text = "录制";
+                }
+                else
+                {
+                    isRecording = true;
+                    btnRecord.Text = "停止录制";
+                    recordedActions.Clear();
+                }
+            };
+
+            btnPlay.Click += async (__, _) =>
+            {
+                foreach (var action in recordedActions)
+                {
+                    action();
+                    await Task.Delay(int.Parse(delayVal.Text));
+                }
+            };
+
+            MouseClick += (_, e) =>
+            {
+                if (isRecording)
+                {
+                    recordedActions.Add(() =>
+                    {
+                        if (e.Button == MouseButtons.Left)
+                        {
+                            ClickMouseButton(MouseEventFlags.MOUSEEVENTF_LEFTDOWN, MouseEventFlags.MOUSEEVENTF_LEFTUP);
+                        }
+                        else if (e.Button == MouseButtons.Right)
+                        {
+                            ClickMouseButton(MouseEventFlags.MOUSEEVENTF_RIGHTDOWN, MouseEventFlags.MOUSEEVENTF_RIGHTUP);
+                        }
+                    });
+                }
+            };
         }
+
         [STAThread]
         static void Main()
         {
@@ -169,7 +221,5 @@ namespace vMouseClickTool
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new main());
         }
-
-   
     }
 }
