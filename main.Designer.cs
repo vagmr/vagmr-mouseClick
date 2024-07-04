@@ -76,7 +76,7 @@ namespace vMouseClickTool
             this.btnUrl.Name = "btnUrl";
             this.btnUrl.Size = new System.Drawing.Size(335, 15);
             this.btnUrl.TabIndex = 2;
-            this.btnUrl.Text = "https://github.com/vagmr/";
+            this.btnUrl.Text = "https://github.com/vagmr/vagmr-mouseClick";
             // 
             // label2
             // 

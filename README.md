@@ -9,13 +9,11 @@
 
 ## 下载
 
-[本地下载](https://github.com/lalakii/MouseClickTool/releases)
-
-[备用下载 蓝奏云](https://a01.lanzout.com/iVEkC1r88flg)
+[本地下载](https://github.com/vagmr/vagmr-mouseClick/releases)
 
 ## 使用帮助
 
 如何退出？如果鼠标点击频率过快无法停下来，请先让程序窗口到前台，然后按 ALT+F4 关闭程序。
 
 ## 界面预览
-[demo](https://github.com/vagmr/vagmr-mouseClick/blob/main/demo.jpg)
+<img src="https://github.com/vagmr/vagmr-mouseClick/demo.jpg" width="450"/>
