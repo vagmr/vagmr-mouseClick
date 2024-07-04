@@ -80,6 +80,7 @@ namespace vMouseClickTool
             btnClose.MouseHover += (__, _) => btnClose.ForeColor = Color.IndianRed;
             btnClose.MouseLeave += (__, _) => btnClose.ForeColor = Control.DefaultForeColor;
             btnMin.MouseHover += (__, _) => btnMin.ForeColor = Color.DodgerBlue;
+
             btnMin.MouseLeave += (__, _) => btnMin.ForeColor = Control.DefaultForeColor;
             Resize += (_, __) =>
             {

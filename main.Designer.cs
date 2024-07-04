@@ -1,4 +1,6 @@
-﻿namespace vMouseClickTool
+﻿using System.Drawing;
+
+namespace vMouseClickTool
 {
     partial class main
     {
@@ -42,6 +44,13 @@
             this.btnClose = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
             this.btnMin = new System.Windows.Forms.Label();
+            this.btnRecord = new System.Windows.Forms.Button();
+            this.btnPlay = new System.Windows.Forms.Button();
+
+            // 设置Material Design风格的控件
+            this.BackColor = Color.White;
+            this.ForeColor = Color.Black;
+            this.Font = new Font("Roboto", 10);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -238,6 +247,9 @@
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label btnMin;
+        private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.Button btnRecord;
+
     }
 }
 
