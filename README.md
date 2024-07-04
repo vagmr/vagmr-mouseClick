@@ -1,4 +1,6 @@
-# MouseClickTool
+# vagmr-mouseClick
+
+简单的鼠标连点器
 [![Windows .exe program](https://img.shields.io/badge/windows-.exe-0078D4?logo=windows)](https://ru.wikipedia.org/wiki/.EXE)
 
 简单好用的鼠标连点器，因为玩游戏需要连点，在网上找了好多连点器，有的居然还要收费...
@@ -17,4 +19,3 @@
 
 ## 界面预览
 
-<img src="https://cdn.jsdelivr.net/gh/lalakii/MouseClickTool/demo.jpg" width="450"/>
